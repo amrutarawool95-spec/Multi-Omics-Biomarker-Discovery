@@ -1,0 +1,37 @@
+project:
+  name: "Multi-Omics Biomarker Discovery in Type 2 Diabetes"
+  organism: "Homo sapiens"
+  primary_tissue: "pancreatic islets"
+  random_seed: 42
+
+datasets:
+  discovery_transcriptomics:
+    accession: "GSE164416"
+    repository: "GEO"
+    planned_primary_comparison:
+      case: "type 2 diabetes"
+      control: "non-diabetic"
+    note: "Verify group labels and exact sample counts from source metadata/publication."
+
+  candidate_proteomics:
+    accession: "PXD022561"
+    repository: "PRIDE"
+    note: "Inspect file manifest and sample/donor identifiers. Do not assume matched samples."
+
+  validation_transcriptomics:
+    accession: "GSE76895"
+    repository: "GEO"
+    note: "Potential external validation cohort; verify platform, phenotype and tissue."
+
+paths:
+  raw_geo: "data/raw/geo"
+  raw_pride: "data/raw/pride"
+  processed: "data/processed"
+  metadata: "data/metadata"
+  reports: "reports"
+
+acquisition:
+  request_timeout_seconds: 60
+  user_agent: "MultiOmicsBiomarkerDiscovery/0.1 (academic research; contact: replace-with-your-email)"
+  download_pride_files: false
+  max_pride_file_size_mb: 100
